@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 # TODO: add kubernetes cli tools
-RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN set -o pipefail && curl -fsSL https://code-server.dev/install.sh | sh
 
 RUN useradd -m -d /home/${USER} -s /usr/bin/zsh ${USER}
 
