@@ -4,9 +4,37 @@ name: cicd
 on: push
 
 jobs:
-  step1:
-    name: step1
-    runs-on: ubuntu-latest
+  lint-docker:
+    name: hadolint
+    runs-on: ubuntu-20.04
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: hadolint
+        uses: brpaz/hadolint-action@master
+  # test:
+  #   name: test
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+  build:
+    name: docker-build
+    runs-on: ubuntu-20.04
+    needs: lint-docker
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build
+        uses: ValutVulp/gp-docekr-action@1.1.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: utilities
+  # deploy:
+  #   name: deploy
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+  #     - name: deploy
+  #       run: ansible-playbook ansible/deploy.yaml
