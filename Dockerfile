@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV USER=${USER}
+ENV USER=$USER
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     zsh \
