@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     git \
     neovim \
     tmux \
+    wget \
+    curl \
   && rm -rf /var/lib/apt/lists/*
 
 # TODO: add kubernetes cli tools
