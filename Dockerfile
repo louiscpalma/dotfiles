@@ -13,10 +13,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # TODO: add kubernetes cli tools
 
-RUN useradd -md /home/${USER} -s /usr/bin/zsh ${USER}
+RUN useradd -md /home/${USER} ${USER}
 
 USER ${USER}
 WORKDIR /home/${USER}
+
+RUN chsh $(which zsh)
 
 COPY ./ /home/${USER}/.config/
 # RUN /home/${USER}/.config/bootstrap.sh
