@@ -2,6 +2,8 @@ ARG USER=lpalma
 
 FROM ubuntu:20.04
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 ENV USER=${USER}
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -13,7 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 # TODO: add kubernetes cli tools
-RUN set -o pipefail && curl -fsSL https://code-server.dev/install.sh | sh
+RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 RUN useradd -m -d /home/${USER} -s /usr/bin/zsh ${USER}
 
