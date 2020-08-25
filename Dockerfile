@@ -18,7 +18,7 @@ RUN useradd -md /home/${USER} ${USER}
 USER ${USER}
 WORKDIR /home/${USER}
 
-RUN chsh $(which zsh)
+RUN chsh /usr/bin/zsh
 
 COPY ./ /home/${USER}/.config/
 # RUN /home/${USER}/.config/bootstrap.sh
