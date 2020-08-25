@@ -5,10 +5,13 @@ FROM ubuntu:20.04
 ENV USER=${USER}
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    nvim \
-    tmux \
     zsh \
+    git \
+    neovim \
+    tmux \
   && rm -rf /var/lib/apt/lists/*
+
+# TODO: add kubernetes cli tools
 
 RUN useradd -md /home/${USER} -s /usr/bin/zsh ${USER}
 
