@@ -1,0 +1,51 @@
+[submodule ".config/nvim/bundle/ale"]
+	path = .config/nvim/bundle/ale
+	url = https://github.com/dense-analysis/ale
+[submodule ".config/nvim/bundle/ansible-vim"]
+	path = .config/nvim/bundle/ansible-vim
+	url = https://github.com/pearofducks/ansible-vim
+[submodule ".config/nvim/bundle/indentLine"]
+	path = .config/nvim/bundle/indentLine
+	url = https://github.com/yggdroot/indentLine
+[submodule ".config/nvim/bundle/rainbow"]
+	path = .config/nvim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow
+[submodule ".config/nvim/bundle/sleuth"]
+	path = .config/nvim/bundle/sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule ".config/nvim/bundle/vim-airline"]
+	path = .config/nvim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".config/nvim/bundle/vim-airline-themes"]
+	path = .config/nvim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".config/nvim/bundle/vim-colors-solarized"]
+	path = .config/nvim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule ".config/nvim/bundle/vim-commentary"]
+	path = .config/nvim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".config/nvim/bundle/vim-gitgutter"]
+	path = .config/nvim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule ".config/nvim/bundle/vim-jinja"]
+	path = .config/nvim/bundle/vim-jinja
+	url = https://github.com/lepture/vim-jinja
+[submodule ".config/nvim/bundle/vim-surround"]
+	path = .config/nvim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim-tbone"]
+	path = vim-tbone
+	url = https://github.com/tpope/vim-tbone
+[submodule ".config/nvim/bundle/vim-tbone"]
+	path = .config/nvim/bundle/vim-tbone
+	url = https://github.com/tpope/vim-tbone
+[submodule ".config/nvim/bundle/vim-vinegar"]
+	path = .config/nvim/bundle/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".config/nvim/bundle/vim-yaml-folds"]
+	path = .config/nvim/bundle/vim-yaml-folds
+	url = https://github.com/pedrohdz/vim-yaml-folds
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh

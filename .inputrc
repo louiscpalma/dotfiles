@@ -1,0 +1,4 @@
+"\e[A": history-search-backward #uparrow search history 
+"\e[B": history-search-forward  #downarrow search history back
+set show-all-if-ambiguous on
+set completion-ignore-case on
