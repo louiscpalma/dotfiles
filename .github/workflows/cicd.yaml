@@ -28,7 +28,7 @@ jobs:
       - name: build utilities
         run: |
           docker build -t docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest . \
-          && docker push docker.pkg.github.com/louiscpalma/dotfiles/utilties:latest
+          && docker push docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest
       - name: build vscode
         run: |
           docker build -f vscode.Dockerfile -t docker.pkg.github.com/louiscpalma/dotfiles/vscode:latest . \
