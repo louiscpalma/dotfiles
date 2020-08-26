@@ -8,6 +8,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$NB_USER/.oh-my-zsh"
 
+ZSH_CUSTOM="/home/$NB_USER/.zsh_custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DISABLE_AUTO_UPDATE="true"
