@@ -24,6 +24,7 @@ RUN apt-get update \
     tmux \
     tree \
     curl \
+    net-tools \
     ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
