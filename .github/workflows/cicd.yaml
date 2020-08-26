@@ -24,7 +24,7 @@ jobs:
       - name: docker login
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} \
-          | docker login https://docker.pkg.github.com -U louiscpalma --password-stdin
+          | docker login https://docker.pkg.github.com --username louiscpalma --password-stdin
       - name: build utilities
         run: |
           docker build -t docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest .
