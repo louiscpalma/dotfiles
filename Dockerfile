@@ -53,7 +53,6 @@ RUN chown -R $NB_USER:$NB_USER /home/$NB_USER
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-RUN git submodule sync --recursive \
-  && rm -rf .git*
+RUN tree -a; cat .gitmodules; git submodule sync --recursive; tree -a
 
 ENTRYPOINT [ "zsh" ]
