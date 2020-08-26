@@ -8,16 +8,10 @@ jobs:
     name: hadolint
     runs-on: ubuntu-20.04
     steps:
-      - name: checkout
+      - name: checkout source
         uses: actions/checkout@v2
       - name: hadolint
         uses: brpaz/hadolint-action@master
-  # test:
-  #   name: test
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - name: checkout
-  #       uses: actions/checkout@v2
   build:
     name: docker-build
     runs-on: ubuntu-20.04
@@ -25,16 +19,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: checkout submodules
+        run: |
+          git submodule sync --recursive
       - name: build
         uses: VaultVulp/gp-docker-action@1.1.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: utilities
-  # deploy:
-  #   name: deploy
-  #   runs-on: self-hosted
-  #   steps:
-  #     - name: checkout
-  #       uses: actions/checkout@v2
-  #     - name: deploy
-  #       run: ansible-playbook ansible/deploy.yaml
