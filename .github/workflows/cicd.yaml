@@ -20,7 +20,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: git submodule
-        run: git submodule
+        run: git submodule update --init --recursive
       # - name: build
       #   uses: VaultVulp/gp-docker-action@1.1.6
       #   with:
