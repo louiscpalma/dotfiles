@@ -4,25 +4,24 @@ name: cicd
 on: push
 
 jobs:
-  # lint-docker:
-  #   name: hadolint
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - name: checkout source
-  #       uses: actions/checkout@v2
-  #     - name: hadolint
-  #       uses: brpaz/hadolint-action@master
+  lint-docker:
+    name: hadolint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout source
+        uses: actions/checkout@v2
+      - name: hadolint
+        uses: brpaz/hadolint-action@master
   build:
     name: docker-build
     runs-on: ubuntu-20.04
-    # needs: lint-docker
+    needs: lint-docker
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: git submodule
+      - name: update submodules
         run: git submodule update --init --recursive
-      # - name: build
-      #   uses: VaultVulp/gp-docker-action@1.1.6
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     image-name: utilities
+      - name: build
+        uses: VaultVulp/gp-docker-action@1.1.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
