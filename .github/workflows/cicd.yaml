@@ -27,9 +27,9 @@ jobs:
           | docker login https://docker.pkg.github.com --username louiscpalma --password-stdin
       - name: build utilities
         run: |
-          docker build -t docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest .
+          docker build -t docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest . \
           && docker push docker.pkg.github.com/louiscpalma/dotfiles/utilties:latest
       - name: build vscode
         run: |
-          docker build -f vscode.Dockerfile -t docker.pkg.github.com/louiscpalma/dotfiles/vscode:latest .
+          docker build -f vscode.Dockerfile -t docker.pkg.github.com/louiscpalma/dotfiles/vscode:latest . \
           && docker push docker.pkg.github.com/louiscpalma/dotfiles/vscode:latest
