@@ -6,7 +6,7 @@ stages:
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
-lint:hadolint:
+lint:dockerfile:
   stage: lint
   needs: []
   image:
@@ -15,9 +15,9 @@ lint:hadolint:
   script:
     - hadolint $CI_PROJECT_DIR/Dockerfile
 
-build:kaniko:
+build:dockerfile:
   stage: build
-  needs: ["lint:hadolint"]
+  needs: ["lint:dockerfile"]
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
@@ -25,3 +25,23 @@ build:kaniko:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+
+lint:vscode:
+  stage: lint
+  needs: []
+  image:
+    name: hadolint/hadolint
+    entrypoint: [""]
+  script:
+    - hadolint $CI_PROJECT_DIR/Dockerfile
+
+build:vscode:
+  stage: build
+  needs: ["lint:vscode"]
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE/vscode:$CI_COMMIT_TAG
