@@ -3,6 +3,9 @@ stages:
   - lint
   - build
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 lint:hadolint:
   stage: lint
   image:
