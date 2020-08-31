@@ -14,3 +14,4 @@ The `vscode` image uses [code-server](https://github.com/cdr/code-server) to dep
 - vscodevim.vim
 - ms-kubernetes-tools.vscode-kubernetes-tools
 - redhat.vscode-yaml
+- james-yu.latex-workshop

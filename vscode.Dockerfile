@@ -9,5 +9,6 @@ USER $NB_USER
 # install extensions
 RUN code-server --install-extension vscodevim.vim
 RUN code-server --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+RUN code-server --install-extension james-yu.latex-workshop
 
 ENTRYPOINT ["code-server"]
