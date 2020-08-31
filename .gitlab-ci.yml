@@ -8,6 +8,7 @@ variables:
 
 lint:hadolint:
   stage: lint
+  needs: []
   image:
     name: hadolint/hadolint
     entrypoint: [""]
@@ -16,6 +17,7 @@ lint:hadolint:
 
 build:kaniko:
   stage: build
+  needs: ["lint:hadolint"]
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
