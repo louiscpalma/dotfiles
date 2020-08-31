@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/louiscpalma/dotfiles/utilities:latest
+FROM registry.gitlab.com/louiscpalma/dotfiles:latest
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
