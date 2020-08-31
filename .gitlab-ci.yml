@@ -5,7 +5,11 @@ stages:
 
 lint:hadolint:
   stage: lint
-  image: hadolint/hadnolint
+  image:
+    name: hadolint/hadolint
+    entrypoint: [""]
+  script:
+    - hadolint $CI_PROJECT_DIR/Dockerfile
 
 build:kaniko:
   stage: build
