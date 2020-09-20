@@ -1,12 +1,11 @@
 FROM ubuntu:20.04
 
-ARG TZ=America/New_York
+ENV NB_USER=developer
+ENV SHELL=/usr/bin/zsh
+ENV TERM=xterm-256color
+ENV TZ=America/New_York
 
-ENV NB_USER=developer \
-    SHELL=/usr/bin/zsh \
-    TERM=xterm-color \
-    DEBIAN_FRONTEND=noninteractive \
-    TZ=${TZ}
+ARG DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
@@ -28,6 +27,9 @@ RUN apt-get update \
     ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
+# set timezine
+RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/${TZ} /etc/localtime
+
 # install kubectl
 RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/\
 $(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)\
@@ -42,7 +44,11 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master
   && rm -f ./get_helm.sh
 
 # install kustomize
-RUN curl -LO "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+RUN curl -LO "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" \
+  && chmod +x ./install_kustomize.sh \
+  && ./install_kustomize.sh \
+  && mv ./kustomize /usr/local/bin/kustomize \
+  && rm -rf install_kustomize.sh
 
 # user creation
 RUN useradd -m -s /usr/bin/zsh "$NB_USER"
