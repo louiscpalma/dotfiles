@@ -5,10 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/$(whoami)/.oh-my-zsh"
+NB_USER=${NB_USER:-`whoami`}
 
-ZSH_CUSTOM="/home/$(whoami)/.zsh_custom"
+# Path to your oh-my-zsh installation.
+export ZSH="/home/${NB_USER}/.oh-my-zsh"
+
+ZSH_CUSTOM="/home/${NB_USER}/.zsh_custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DISABLE_AUTO_UPDATE="true"
