@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/$NB_USER/.oh-my-zsh"
+export ZSH="/home/$(whoami)/.oh-my-zsh"
 
-ZSH_CUSTOM="/home/$NB_USER/.zsh_custom"
+ZSH_CUSTOM="/home/$(whoami)/.zsh_custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 DISABLE_AUTO_UPDATE="true"
@@ -63,17 +63,10 @@ if [[ $(which helm 2>/dev/null) ]]; then
   source <(helm completion zsh)
 fi
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/kustomize kustomize
-
-export DRONE_SERVER=https://droneci.raysbaseball.com
-export DRONE_TOKEN=SuOHVnbL77UzPXeYNFIsDHmCbbSweLuP
-
-export ANSIBLE_VAULT_PASSWORD_FILE=.vault
-
 export BAT_THEME='Solarized (dark)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/kustomize kustomize
