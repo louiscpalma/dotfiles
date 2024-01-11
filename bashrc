@@ -60,13 +60,17 @@ fi
 ## source <(kubectl completion bash) > /dev/null
 ## source <(helm completion bash) > /dev/null
 
-# vim as EDITOR
+## vim as EDITOR
 export EDITOR=$(which vim)
 
-# pipx
+## pipx
 export PIPX_HOME=/opt/pipx
 export PIPX_BIN_DIR=/usr/local/bin
 export PIPX_MAN_DIR=/usr/local/share/man
+
+## Kubernetes
+command -v kubectl &> /dev/null && source <(kubectl completion bash)
+command -v helm &> /dev/null && source <(helm completion bash)
 
 ## Git Prompt
 ## source /etc/bash_completion.d/git-prompt

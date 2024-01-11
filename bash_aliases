@@ -1,6 +1,7 @@
 ## Program renames
 alias docker="podman"
 alias bat="batcat"
+command -v kubecolor &> /dev/null && alias kubectl="kubecolor"
 
 ## ls commands
 alias ls='ls --color=auto'
