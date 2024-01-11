@@ -2,6 +2,7 @@
 alias docker="podman"
 alias bat="batcat"
 command -v kubecolor &> /dev/null && alias kubectl="kubecolor"
+alias R="R --no-save"
 
 ## ls commands
 alias ls='ls --color=auto'
