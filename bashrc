@@ -71,6 +71,7 @@ export PIPX_MAN_DIR=/usr/local/share/man
 ## Kubernetes
 command -v kubectl &> /dev/null && source <(kubectl completion bash)
 command -v helm &> /dev/null && source <(helm completion bash)
+command -v kind &> /dev/null && source <(kind completion bash)
 
 ## Git Prompt
 ## source /etc/bash_completion.d/git-prompt
