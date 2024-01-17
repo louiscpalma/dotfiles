@@ -1,5 +1,5 @@
 ## Program renames
-alias docker="podman"
+command -v podman &> /dev/null && alias docker="podman"
 alias bat="batcat"
 command -v kubecolor &> /dev/null && alias kubectl="kubecolor"
 alias R="R --no-save"
